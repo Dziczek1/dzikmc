@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <!-- TWÓJ NOWY TYTUŁ ZAKŁADKI W SKLEPIE -->
+    <title>DzikMC.pl - Najlepszy Serwer Anarchia FFA w Polsce</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background: radial-gradient(circle at 50% 0%, #1e2633 0%, #0d1117 100%); color: #f0f4f8; min-height: 100vh; }
+        header { background: rgba(13, 17, 23, 0.85); backdrop-filter: blur(10px); padding: 20px 50px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 30px rgba(0,0,0,0.4); border-bottom: 3px solid #2ecc71; position: sticky; top: 0; z-index: 100; }
+        nav { display: flex; justify-content: center; align-items: center; }
+        nav a { text-transform: uppercase; text-decoration: none; color: #a0aec0; font-weight: 700; margin: 0 25px; font-size: 14px; transition: all 0.3s ease; letter-spacing: 1px; padding: 8px 16px; border-radius: 6px; }
+        nav a:hover, nav a.active { color: #2ecc71; background: rgba(46, 204, 113, 0.1); text-shadow: 0 0 10px rgba(46, 204, 113, 0.6); transform: translateY(-1px); }
+        .cart-btn { background: linear-gradient(135deg, #f1c40f 0%, #d68910 100%); color: #111; padding: 12px 22px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 14px; box-shadow: 0 4px 10px rgba(241,196,15,0.2); transition: transform 0.2s; }
+        .cart-btn:hover { transform: translateY(-2px); }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .shop-section { width: 100%; }
+        .section-title { text-align: center; text-transform: uppercase; background: linear-gradient(135deg, #f1c40f 0%, #d68910 100%); color: #111; display: inline-block; padding: 10px 30px; font-size: 14px; font-weight: 800; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(241,196,15,0.2); }
+        .title-wrapper { text-align: center; margin-bottom: 20px; }
+        .comparison-table-wrapper { background: rgba(22, 29, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); border-radius: 16px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); overflow-x: auto; margin-top: 10px; }
+        .comp-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 14px; }
+        .comp-table th, .comp-table td { padding: 16px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .comp-table td:first-child { text-align: left; font-weight: 600; color: #a0aec0; width: 280px; }
+        .rank-header { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 10px !important; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .rh-mlody { color: #f1c40f; }
+        .rh-dzik { color: #e67e22; }
+        .rh-wk { color: #3498db; }
+        .rh-king { color: #a855f7; }
+        .table-buy-btn { display: inline-block; width: 100%; max-width: 170px; padding: 12px 10px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 11px; text-transform: uppercase; color: #111; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.2s ease; }
+        .table-buy-btn:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+        .tbtn-mlody { background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%); }
+        .tbtn-dzik { background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: white; }
+        .tbtn-wk { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; }
+        .tbtn-king { background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%); color: white; }
+        .comp-table td { color: #e2e8f0; font-weight: 700; }
+        .check-yes { color: #2ecc71; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px rgba(46,204,113,0.3); }
+        .check-no { color: #e74c3c; font-size: 20px; font-weight: bold; opacity: 0.6; }
+        .col-king-highlight { background-color: rgba(168, 85, 247, 0.03); border-left: 1px solid rgba(168, 85, 247, 0.2); border-right: 1px solid rgba(168, 85, 247, 0.2); }
+        th.col-king-highlight { border-top: 2px solid #a855f7; border-radius: 8px 8px 0 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Główna</a>
+            <a href="sklep.html" class="active">Sklep</a>
+            <a href="#">Regulamin</a>
+            <a href="#">Profil</a>
+        </nav>
+        <a href="#" class="cart-btn">🛒 KOSZYK (0)</a>
+    </header>
+    <div class="container">
+        <div class="shop-section">
+            <div class="title-wrapper"><div class="section-title">Wyróżnione Rangi</div></div>
+            <div class="comparison-table-wrapper">
+                <table class="comp-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="rank-header rh-mlody">Młody Dzik</th>
+                            <th class="rank-header rh-dzik">Dzik</th>
+                            <th class="rank-header rh-wk">WKdzik</th>
+                            <th class="rank-header rh-king col-king-highlight">King</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th><a href="#" class="table-buy-btn tbtn-mlody">10.00 ZŁ - DODAJ</a></th>
+                            <th><a href="#" class="table-buy-btn tbtn-dzik">20.00 ZŁ - DODAJ</a></th>
+                            <th><a href="#" class="table-buy-btn tbtn-wk">40.00 ZŁ - DODAJ</a></th>
+                            <th class="col-king-highlight"><a href="#" class="table-buy-btn tbtn-king">60.00 ZŁ - DODAJ</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Czas trwania rangi</td><td>30 DNI</td><td>30 DNI</td><td>30 DNI</td><td class="col-king-highlight">30 DNI</td></tr>
+                        <tr><td>Dostępny Zestaw (Kit)</td><td>MłodyDzik</td><td>Dzik</td><td>WKdzik</td><td class="col-king-highlight">King</td></tr>
+                        <tr><td>Ilość sethome</td><td>3</td><td>5</td><td>7</td><td class="col-king-highlight">7</td></tr>
+                        <tr><td>Dodatkowe przedmioty na rynku</td><td>5</td><td>7</td><td>10</td><td class="col-king-highlight">10</td></tr>
+                        <tr><td>Dodatkowe $ za zabójstwo</td><td>20$</td><td>50$</td><td>100$</td><td class="col-king-highlight">100$</td></tr>
+                        <tr><td>Mnożnik dropu ze strefy AFK</td><td>-</td><td>x2</td><td>x3</td><td class="col-king-highlight">x3</td></tr>
+                        <tr><td>Epicki Klucz w daily</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="col-king-highlight check-yes">✓</td></tr>
+                        <tr><td>Dostęp do komendy /repairall</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="col-king-highlight check-yes">✓</td></tr>
+                        <tr><td>Dostęp do komendy /repair</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="check-yes">✓</td><td class="col-king-highlight check-yes">✓</td></tr>
+                        <tr><td>Mobilny Ekwipunek (/wb + /ec)</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="check-yes">✓</td><td class="col-king-highlight check-yes">✓</td></tr>
+                        <tr><td>Ominięcie kolejki na serwer</td><td class="check-yes">✓</td><td class="check-yes">✓</td><td class="check-yes">✓</td><td class="col-king-highlight check-yes">✓</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
