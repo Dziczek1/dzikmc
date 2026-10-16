@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <!-- TWÓJ NOWY TYTUŁ ZAKŁADKI -->
     <title>DzikMC.pl - Najlepszy Serwer Anarchia FFA w Polsce</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
@@ -19,8 +18,56 @@
         .hero-banner { background: rgba(22, 29, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); border-radius: 16px; padding: 50px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .server-logo { max-width: 100%; height: auto; max-height: 200px; margin-bottom: 25px; filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.5)); }
         .hero-banner p { color: #cbd5e0; font-size: 16px; max-width: 550px; line-height: 1.6; margin-bottom: 30px; font-weight: 500; }
-        .ip-box-new { display: flex; align-items: center; background: #1a202c; color: white; padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 16px; border: 1px solid #2ecc71; box-shadow: 0 0 15px rgba(46, 204, 113, 0.2); }
-        .ip-box-new span { color: #f1c40f; margin-left: 8px; user-select: all; text-shadow: 0 0 8px rgba(241, 196, 15, 0.4); }
+        
+        /* POLE IP */
+        .ip-box-new { 
+            display: flex; 
+            align-items: center; 
+            background: #1a202c; 
+            color: white; 
+            padding: 14px 30px; 
+            border-radius: 8px; 
+            font-weight: 700; 
+            font-size: 16px; 
+            border: 1px solid #2ecc71;
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.2); 
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            user-select: none;
+        }
+        .ip-box-new:hover {
+            transform: scale(1.02);
+            background-color: #222b3c;
+        }
+        .ip-box-new:active {
+            transform: scale(0.98);
+        }
+        .ip-box-new span { color: #f1c40f; margin-left: 8px; text-shadow: 0 0 8px rgba(241, 196, 15, 0.4); }
+        
+        /* CHMURKA Z INFORMACJĄ O SKOPIOWANIU */
+        .copy-tooltip {
+            position: absolute;
+            top: -35px;
+            background: #2ecc71;
+            color: #111;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .copy-tooltip.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         .sidebar { display: flex; flex-direction: column; gap: 15px; }
         .cta-button { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 22px; border-radius: 12px; text-align: center; color: white; font-weight: 700; text-transform: uppercase; text-decoration: none; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.2s ease; }
         .cta-button:hover { transform: translateY(-3px); filter: brightness(1.15); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
@@ -56,7 +103,11 @@
             <div class="hero-banner">
                 <img src="logo.png.png" alt="DzikMC Logo" class="server-logo">
                 <p>Wszystkie nowości, ogłoszenia i unikalne eventy serwerowe znajdziesz na naszym Discordzie!</p>
-                <div class="ip-box-new">IP SERWERA: <span>dzikmc.pshsv.pl</span></div>
+                
+                <div class="ip-box-new" id="ipBox" onclick="copyIpAddress()">
+                    <div class="copy-tooltip" id="copyTooltip">Skopiowano!</div>
+                    IP SERWERA: <span id="ipText">dzikmc.pshsv.pl</span>
+                </div>
             </div>
             <div class="sidebar">
                 <a href="https://discord.gg" target="_blank" class="cta-button btn-pink">Odwołanie od bana</a>
@@ -90,5 +141,17 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+
+    <!-- NOWY SYSTEM DWUFAZOWY (LOKALNY + STRONA ONLINE) -->
+    <script>
+        function copyIpAddress() {
+            var ipText = document.getElementById("ipText").innerText;
+            var tooltip = document.getElementById("copyTooltip");
+
+            // Sprawdzamy czy strona działa online w bezpiecznym protokole https://
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(ipText).then(function() {
+                    showTooltip(tooltip);
+                }).catch(function() {
+                    fallbackCopy(ipText, tooltip);
+                });
